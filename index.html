@@ -1,0 +1,58 @@
+<div id="map"></div>
+<script type="text/javascript">
+
+axios.get('https://api.github.com/gists/751b98782256d2cd9e483828d6cea226')
+  .then(response => {
+  
+  	let sales = JSON.parse(response.data.files['federal_hill_sales.json'].content)
+    
+    // Create the base Leaflet layer (the map itself)
+    let baseLayer = L.tileLayer(
+      'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a>'
+      }
+    )
+
+    // Configure and create the heatmap.js layer
+    let cfg = {
+      "radius": 40,
+      "useLocalExtrema": true,
+      valueField: 'price'
+    }
+
+    let heatmapLayer = new HeatmapOverlay(cfg)
+
+    // Determine min/max (from sales.js file) for the heatmap.js plugin
+    let min = Math.min(...sales.map(sale => sale.value))
+    let max = Math.max(...sales.map(sale => sale.value))
+
+    // Create the overall Leaflet map using the two layers we created
+    let propertyHeatMap = new L.Map('map', {
+      center: new L.LatLng(34.0671, 74.8127),
+      zoom: 15,
+      layers: [baseLayer, heatmapLayer]
+    })
+
+    // Add data (from sales.js file) to the heatmap.js layer
+    heatmapLayer.setData({
+      min: min,
+      max: max,
+      data: sales
+    });
+  
+  
+  })
+    .catch(error => {
+    console.log(error)
+  })
+</script>
+
+
+<style>
+#map
+{
+  width: 500px;
+  height: 400px;
+  border: solid 1px black;
+}
+</style>
