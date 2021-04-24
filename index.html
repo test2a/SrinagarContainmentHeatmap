@@ -7,7 +7,7 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/leaflet-heatmap@1.0.0/leaflet-heatmap.js"></script>
 <script type="text/javascript">
 
-axios.get('https://raw.githubusercontent.com/test2a/SrinagarContainmentHeatmap/blob/main/sxr.json')
+axios.get('sxr.json')
   .then(response => {
   
   	let sales = JSON.parse(response.data.files['sxr.json'].content)
