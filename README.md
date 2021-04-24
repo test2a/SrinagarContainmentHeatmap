@@ -13,3 +13,7 @@ The heatmap represents micro containment zones as declared by the competent auth
 ### License
 
 This is an AGPL v3.0 licensed project and you are requested to please contribute to this project by adding your own city/state and helping more people visualise this pandemic. Feel free to fork. :-)
+
+### Attributions
+
+This project is copied from the works of one [Jonathan Spiker](https://github.com/spiker830) and his wonderful tutorial [Dead Simple Heatmaps with Leaflet and heatmap.js](https://makeshiftinsights.com/blog/heatmaps-leaflet-heatmap-js/)
