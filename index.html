@@ -1,7 +1,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"> 
 <h1>Srinagar Containment Zones Heatmap</h1>
 Page Last updated on: 24/04/2021
-See <a href="Changelog.md">Changelog</a> for details
+See <a href="https://github.com/test2a/SrinagarContainmentHeatmap/blob/main/Changelog.md">Changelog</a> for details
 <div id="map"></div>
 
 <link href="leaflet.css" rel="stylesheet" type="text/css" />
@@ -38,7 +38,7 @@ axios.get('https://api.github.com/gists/0f92d2a840f4193a6237f57344d3cbf0')
 
     // Create the overall Leaflet map using the two layers we created
     let propertyHeatMap = new L.Map('map', {
-      center: new L.LatLng(34.0671, 74.8127),
+      center: new L.LatLng(34.0868, 74.8461),
       zoom: 12,
       layers: [baseLayer, heatmapLayer]
     })
